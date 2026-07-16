@@ -10,7 +10,7 @@ export const projects: Project[] = [
     "Designed and developed a modern portfolio using Next.js and Tailwind CSS. The portfolio features project showcases, skills, experience, contact form, smooth animations, dark mode, SEO optimization, and responsive design. It serves as a central hub for recruiters and clients to explore my work.",
   image: "/images/projects/developer-portfolio.svg",
   tags: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Framer Motion"],
-  githubUrl: "https://github.com/Tejasgow/YOUR_REPOSITORY_NAME",
+  githubUrl: "https://github.com/Tejas-shivarame/Portfolio-Tejas.git",
   liveUrl: "https://portfolio-tejas-b82shd8bz-tejas2000-shivarme-personal.vercel.app/",
   featured: true,
   year: 2026,
