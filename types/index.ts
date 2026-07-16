@@ -64,7 +64,7 @@ export interface FaqItem {
 export interface SocialLink {
   name: string;
   url: string;
-  icon: "github" | "linkedin" | "twitter" | "mail" | "instagram";
+  icon: "github" | "linkedin" | "mail" | "instagram";
 }
 
 export interface NavLink {

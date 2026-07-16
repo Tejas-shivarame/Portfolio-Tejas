@@ -20,7 +20,7 @@ A modern, premium, fully responsive personal portfolio built with **Next.js 15 (
 - Projects page with **live search** and **technology filtering**
 - Contact form with **React Hook Form + Zod** validation, a working `/api/contact` route, and toast notifications
 - FAQ accordion
-- SEO: Metadata API, Open Graph + Twitter cards, JSON-LD (`Person` schema), dynamic `sitemap.xml` and `robots.txt`
+- SEO: Metadata API, Open Graph cards, JSON-LD (`Person` schema), dynamic `sitemap.xml` and `robots.txt`
 - Accessible: semantic landmarks, focus-visible states, `aria-*` attributes on interactive elements, honors `prefers-reduced-motion`
 - Production build verified: `npm run build` compiles cleanly and every route pre-renders as static HTML
 
@@ -128,7 +128,7 @@ npm run start
 Everything you need to personalize lives in `data/`:
 
 1. **`data/site-config.ts`** — your name, role, short bio, email, phone, location, resume path, OG image.
-2. **`data/social-links.ts`** — GitHub / LinkedIn / Twitter URLs.
+2. **`data/social-links.ts`** — GitHub / LinkedIn URLs.
 3. **`data/projects.ts`** — add/remove project entries; `featured: true` surfaces a project on the home page.
 4. **`data/skills.ts`**, **`data/experience.ts`**, **`data/certifications.ts`**, **`data/testimonials.ts`**, **`data/faq.ts`** — same pattern.
 5. **`public/images/`** — replace the placeholder SVGs (profile, project previews, certification badges, testimonial avatars) with real photos/screenshots. Keep the same filenames or update the paths in `data/*.ts`.
@@ -140,7 +140,7 @@ Everything you need to personalize lives in `data/`:
 ## 🔎 SEO Checklist
 
 - [x] Metadata API (`generateMetadata`-style config in `lib/metadata.ts`, used per page)
-- [x] Open Graph + Twitter card tags
+- [x] Open Graph
 - [x] JSON-LD `Person` structured data in `app/layout.tsx`
 - [x] Dynamic `app/sitemap.ts` → `/sitemap.xml`
 - [x] Dynamic `app/robots.ts` → `/robots.txt`

@@ -36,13 +36,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: siteConfig.name }],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.defaultTitle,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
-  
-  },
+
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
@@ -77,7 +71,6 @@ export default function RootLayout({
     sameAs: [
       "https://github.com/yourusername",
       "https://linkedin.com/in/yourusername",
-      "https://twitter.com/yourusername",
     ],
   };
 

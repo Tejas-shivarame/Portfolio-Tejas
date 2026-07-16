@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin,Mail } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { AnimatedGradient } from "@/components/animated-gradient";
@@ -12,7 +12,7 @@ import { TypingEffect } from "@/components/typing-effect";
 import { siteConfig } from "@/data/site-config";
 import { socialLinks } from "@/data/social-links";
 
-const iconMap = { github: Github, linkedin: Linkedin, twitter: Twitter, mail: Mail, instagram: Github };
+const iconMap = { github: Github, linkedin: Linkedin,mail: Mail, instagram: Github };
 
 const roles = [
   "Python Backend Developer",

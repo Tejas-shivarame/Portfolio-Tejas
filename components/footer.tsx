@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Linkedin, Twitter, Mail, Terminal } from "lucide-react";
+import { Github, Linkedin, Mail, Terminal } from "lucide-react";
 
 import { navLinks } from "@/data/nav-links";
 import { socialLinks } from "@/data/social-links";
@@ -8,7 +8,6 @@ import { siteConfig } from "@/data/site-config";
 const iconMap = {
   github: Github,
   linkedin: Linkedin,
-  twitter: Twitter,
   mail: Mail,
   instagram: Github,
 };
