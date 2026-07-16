@@ -1,8 +1,8 @@
-# Aarav Sharma — Personal Portfolio
+# Tejas S— Personal Portfolio
 
 A modern, premium, fully responsive personal portfolio built with **Next.js 15 (App Router)**, **TypeScript**, **Tailwind CSS**, and **Framer Motion** — designed for a software engineer / Python backend developer applying to top tech companies.
 
-**Design language:** deep space-navy dark mode (not pure black) with an indigo/amber signal-color pair, Space Grotesk for display type, Inter for body copy, and JetBrains Mono used deliberately for terminal-style labels (`// section` eyebrows, status badges, code comments) — a nod to the backend/systems focus of the content rather than a generic gradient template.
+**Design language:** deep space-navy dark mode (not pure black) with an indigo/amber signal-color pair, Space Grotesk for display type, Inter for body copy, and JetBrains Mono used deliberately for terminal-style labels (`// section` status badges, code comments) — a nod to the backend/systems focus of the content rather than a generic gradient template.
 
 ---
 
@@ -28,16 +28,16 @@ A modern, premium, fully responsive personal portfolio built with **Next.js 15 (
 
 ## 🧱 Tech Stack
 
-| Layer | Choice |
-|---|---|
-| Framework | Next.js 15 (App Router) |
-| Language | TypeScript |
-| Styling | Tailwind CSS + CSS variables for theming |
-| Animation | Framer Motion |
-| Icons | lucide-react |
-| Forms | React Hook Form + Zod |
+| Layer         | Choice                                                                                                                 |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Framework     | Next.js 15 (App Router)                                                                                                |
+| Language      | TypeScript                                                                                                             |
+| Styling       | Tailwind CSS + CSS variables for theming                                                                               |
+| Animation     | Framer Motion                                                                                                          |
+| Icons         | lucide-react                                                                                                           |
+| Forms         | React Hook Form + Zod                                                                                                  |
 | UI primitives | Hand-rolled shadcn/ui-style components (Button, Card, Input, Textarea, Label, Badge, Toast) on top of Radix primitives |
-| Theming | next-themes |
+| Theming       | next-themes                                                                                                            |
 
 ---
 
@@ -151,6 +151,7 @@ Everything you need to personalize lives in `data/`:
 ## ☁️ Deploying to Vercel
 
 1. **Push to GitHub** (or GitLab/Bitbucket):
+
    ```bash
    git init
    git add .

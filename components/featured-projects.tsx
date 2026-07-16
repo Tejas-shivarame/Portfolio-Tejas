@@ -16,7 +16,6 @@ export function FeaturedProjects() {
       <div className="container">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
-            eyebrow="projects"
             title="Selected work"
             description="A few systems and tools I've designed and shipped end to end."
             className="mb-0"

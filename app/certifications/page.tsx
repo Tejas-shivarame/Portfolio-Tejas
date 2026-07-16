@@ -16,9 +16,6 @@ export default function CertificationsPage() {
     <div className="pt-20">
       <section className="pt-16 pb-8 sm:pt-24">
         <div className="container max-w-3xl">
-          <p className="font-mono text-xs uppercase tracking-widest text-primary">
-            {"// certifications"}
-          </p>
           <h1 className="mt-4 text-balance font-display text-4xl font-semibold tracking-tight sm:text-5xl">
             Continuous learning, on record.
           </h1>

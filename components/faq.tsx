@@ -15,7 +15,6 @@ export function Faq() {
     <section className="relative py-24 sm:py-32">
       <div className="container max-w-3xl">
         <SectionHeading
-          eyebrow="faq"
           title="Frequently asked questions"
           align="center"
           className="mx-auto"
