@@ -11,7 +11,7 @@ export const projects: Project[] = [
   image: "/images/projects/developer-portfolio.svg",
   tags: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Framer Motion"],
   githubUrl: "https://github.com/Tejasgow/YOUR_REPOSITORY_NAME",
-  liveUrl: "https://your-portfolio-url.com",
+  liveUrl: "https://portfolio-tejas-b82shd8bz-tejas2000-shivarme-personal.vercel.app/",
   featured: true,
   year: 2026,
 },
