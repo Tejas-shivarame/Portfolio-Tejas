@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode — warm paper white with the same indigo/amber signal pair */
+    --background: 210 25% 98%;
+    --foreground: 222 30% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 30% 10%;
+    --surface: 210 30% 96%;
+    --surface-hover: 210 25% 92%;
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 234 89% 64%;
+    --muted: 210 25% 94%;
+    --muted-foreground: 220 10% 42%;
+    --primary: 234 89% 64%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 35 92% 51%;
+    --accent-foreground: 26 40% 12%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Dark mode — deep space navy, not pure black */
+    --background: 222 47% 6%;
+    --foreground: 210 30% 96%;
+    --card: 222 40% 9%;
+    --card-foreground: 210 30% 96%;
+    --surface: 222 38% 10%;
+    --surface-hover: 222 34% 13%;
+    --border: 222 25% 18%;
+    --input: 222 25% 18%;
+    --ring: 234 89% 68%;
+    --muted: 222 30% 13%;
+    --muted-foreground: 218 15% 65%;
+    --primary: 234 89% 68%;
+    --primary-foreground: 222 47% 8%;
+    --accent: 38 92% 58%;
+    --accent-foreground: 26 40% 10%;
+    --destructive: 0 63% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  ::selection {
+    @apply bg-primary/25 text-foreground;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Signature background: faint engineering grid, used sparingly */
+  .bg-engineering-grid {
+    background-image: var(--tw-gradient-grid, none);
+    background-image: linear-gradient(
+        to right,
+        hsl(var(--border) / 0.5) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, black 40%, transparent 100%);
+  }
+
+  .text-gradient-signal {
+    @apply bg-signal-gradient bg-clip-text text-transparent;
+  }
+
+  .glass-panel {
+    @apply border border-border/60 bg-card/60 backdrop-blur-xl;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom cursor — only enabled on fine-pointer (desktop) devices via JS check */
+.custom-cursor-active {
+  cursor: none;
+}
+.custom-cursor-active a,
+.custom-cursor-active button {
+  cursor: none;
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+  <defs>
+    <pattern id="grid103" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#1f2937" stroke-width="1" opacity="0.5"/>
+    </pattern></defs>
+  <rect width="600" height="450" fill="#111a2e"/>
+  <rect width="600" height="450" fill="url(#grid103)"/>
+  <circle cx="300" cy="170" r="70" fill="none" stroke="#f5a623" stroke-width="6"/>
+  <path d="M270 170 l20 20 l45 -50" stroke="#f5a623" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="300" y="300" font-family="'Space Grotesk', sans-serif" font-size="24" font-weight="600" fill="#f1f5f9" text-anchor="middle">Docker Foundations</text>
+  <text x="300" y="330" font-family="monospace" font-size="14" fill="#94a3b8" text-anchor="middle">certificate placeholder</text>
+</svg>
