@@ -1,32 +1,35 @@
 "use client";
 
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { motion } from "framer-motion";
-import { Loader2, Send, CheckCircle2 } from "lucide-react";
+import { Loader2, Send } from "lucide-react";
 
-import { contactFormSchema, type ContactFormValues } from "@/lib/validations/contact";
+import { contactSchema, type ContactFormData } from "@/schema/contactSchema";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
 
 export function ContactForm() {
-  const { toast } = useToast();
-  const [submitted, setSubmitted] = useState(false);
+  // Guards against duplicate submissions if the button is clicked twice
+  // before the first request resolves.
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting },
-  } = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
+    formState: { errors },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = async (values: ContactFormValues) => {
+  const onSubmit = async (values: ContactFormData) => {
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -34,21 +37,21 @@ export function ContactForm() {
         body: JSON.stringify(values),
       });
 
-      if (!res.ok) throw new Error("Request failed");
+      const data = await res.json().catch(() => null);
 
-      setSubmitted(true);
+      if (!res.ok || !data?.success) {
+        toast.error(data?.message ?? "Unable to send email.");
+        return;
+      }
+
+      toast.success(data.message ?? "Message sent successfully.");
       reset();
-      toast({
-        title: "Message sent",
-        description: "Thanks for reaching out — I'll reply within 1–2 business days.",
-      });
-      setTimeout(() => setSubmitted(false), 4000);
-    } catch {
-      toast({
-        title: "Something went wrong",
-        description: "Please try again, or email me directly.",
-        variant: "destructive",
-      });
+    } catch (error) {
+      // Network failure, DNS error, offline, etc.
+      console.error("Contact form submission failed:", error);
+      toast.error("Network error. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -61,13 +64,10 @@ export function ContactForm() {
             id="name"
             placeholder="Jane Doe"
             aria-invalid={!!errors.name}
-            aria-describedby={errors.name ? "name-error" : undefined}
             {...register("name")}
           />
           {errors.name && (
-            <p id="name-error" className="text-xs text-destructive">
-              {errors.name.message}
-            </p>
+            <p className="text-xs text-destructive">{errors.name.message}</p>
           )}
         </div>
 
@@ -78,13 +78,10 @@ export function ContactForm() {
             type="email"
             placeholder="jane@company.com"
             aria-invalid={!!errors.email}
-            aria-describedby={errors.email ? "email-error" : undefined}
             {...register("email")}
           />
           {errors.email && (
-            <p id="email-error" className="text-xs text-destructive">
-              {errors.email.message}
-            </p>
+            <p className="text-xs text-destructive">{errors.email.message}</p>
           )}
         </div>
       </div>
@@ -95,13 +92,10 @@ export function ContactForm() {
           id="subject"
           placeholder="Backend engineering opportunity"
           aria-invalid={!!errors.subject}
-          aria-describedby={errors.subject ? "subject-error" : undefined}
           {...register("subject")}
         />
         {errors.subject && (
-          <p id="subject-error" className="text-xs text-destructive">
-            {errors.subject.message}
-          </p>
+          <p className="text-xs text-destructive">{errors.subject.message}</p>
         )}
       </div>
 
@@ -111,13 +105,10 @@ export function ContactForm() {
           id="message"
           placeholder="Tell me a bit about the role or project..."
           aria-invalid={!!errors.message}
-          aria-describedby={errors.message ? "message-error" : undefined}
           {...register("message")}
         />
         {errors.message && (
-          <p id="message-error" className="text-xs text-destructive">
-            {errors.message.message}
-          </p>
+          <p className="text-xs text-destructive">{errors.message.message}</p>
         )}
       </div>
 
@@ -126,26 +117,12 @@ export function ContactForm() {
           <>
             <Loader2 className="h-4 w-4 animate-spin" /> Sending...
           </>
-        ) : submitted ? (
-          <>
-            <CheckCircle2 className="h-4 w-4" /> Sent
-          </>
         ) : (
           <>
             <Send className="h-4 w-4" /> Send Message
           </>
         )}
       </Button>
-
-      {submitted && (
-        <motion.p
-          initial={{ opacity: 0, y: 6 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="font-mono text-xs text-primary"
-        >
-          {"// message queued — thanks for reaching out."}
-        </motion.p>
-      )}
     </form>
   );
 }

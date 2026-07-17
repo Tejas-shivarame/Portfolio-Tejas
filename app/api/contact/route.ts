@@ -1,33 +1,97 @@
-import { NextResponse } from "next/server";
-import { contactFormSchema } from "@/lib/validations/contact";
+import { NextRequest, NextResponse } from "next/server";
+import { contactSchema } from "@/schema/contactSchema";
+import { sendOwnerNotification, sendSenderConfirmation } from "@/lib/mailer";
 
-// This route validates and accepts contact form submissions.
-// Wire it up to a real email provider (Resend, SendGrid, etc.) by
-// filling in the TODO below with your provider's SDK call.
-export async function POST(request: Request) {
+// --- Rate limiting -----------------------------------------------------
+// In-memory, per-serverless-instance limiter. This blocks rapid repeat
+// submissions from the same IP within a single warm function instance.
+// CAVEAT: Vercel can spin up multiple instances of this function under
+// load, and each has its own memory — so this is a best-effort deterrent
+// against casual spam, not a hard cross-instance guarantee. For strict
+// rate limiting in production, use a shared store like Upstash Redis
+// (@upstash/ratelimit) instead.
+const RATE_LIMIT_WINDOW_MS = 60_000; // 1 minute
+const RATE_LIMIT_MAX_REQUESTS = 3;
+const requestLog = new Map<string, number[]>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const recent = (requestLog.get(ip) ?? []).filter(
+    (timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS
+  );
+  recent.push(now);
+  requestLog.set(ip, recent);
+  return recent.length > RATE_LIMIT_MAX_REQUESTS;
+}
+
+export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const result = contactFormSchema.safeParse(body);
+    // Identify caller for rate limiting.
+    const ip =
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+      request.headers.get("x-real-ip") ??
+      "unknown";
 
-    if (!result.success) {
+    if (isRateLimited(ip)) {
       return NextResponse.json(
-        { success: false, errors: result.error.flatten().fieldErrors },
+        {
+          success: false,
+          message: "Too many requests. Please try again in a minute.",
+        },
+        { status: 429 }
+      );
+    }
+
+    // Parse JSON body safely — malformed JSON shouldn't crash the route.
+    let body: unknown;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json(
+        { success: false, message: "Invalid request body." },
         { status: 400 }
       );
     }
 
-    // TODO: send the email, e.g. using Resend:
-    // await resend.emails.send({
-    //   from: "portfolio@yourdomain.com",
-    //   to: process.env.CONTACT_EMAIL_TO,
-    //   subject: `New message: ${result.data.subject}`,
-    //   text: `${result.data.name} <${result.data.email}>\n\n${result.data.message}`,
-    // });
+    // Validate + sanitize with Zod. Rejects empty values and invalid emails.
+    const result = contactSchema.safeParse(body);
+    if (!result.success) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Please check the form for errors.",
+          errors: result.error.flatten().fieldErrors,
+        },
+        { status: 400 }
+      );
+    }
 
-    return NextResponse.json({ success: true });
-  } catch {
+    const data = result.data;
+
+    // Send both emails. If either fails, report a generic error — never
+    // leak SMTP internals or credentials to the client.
+    try {
+      await sendOwnerNotification(data);
+      await sendSenderConfirmation(data);
+    } catch (mailError) {
+      console.error("[api/contact] Failed to send email:", mailError);
+      return NextResponse.json(
+        { success: false, message: "Unable to send email." },
+        { status: 502 }
+      );
+    }
+
     return NextResponse.json(
-      { success: false, message: "Something went wrong. Please try again." },
+      { success: true, message: "Message sent successfully." },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("[api/contact] Unexpected error:", error);
+    return NextResponse.json(
+      {
+        success: false,
+        message: "Something went wrong. Please try again later.",
+      },
       { status: 500 }
     );
   }

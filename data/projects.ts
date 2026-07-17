@@ -5,7 +5,7 @@ export const projects: Project[] = [
   slug: "developer-portfolio",
   title: "Developer Portfolio",
   description:
-    "A responsive portfolio showcasing my projects, technical skills, and professional experience.",
+    "A responsive portfolio website showcasing my projects, technical skills, and professional experience. Built with modern web technologies, it highlights my expertise in full-stack development, problem-solving, and creating user-friendly digital experiences. The portfolio also includes my achievements, certifications, and contact information for potential employers and clients.",
   longDescription:
     "Designed and developed a modern portfolio using Next.js and Tailwind CSS. The portfolio features project showcases, skills, experience, contact form, smooth animations, dark mode, SEO optimization, and responsive design. It serves as a central hub for recruiters and clients to explore my work.",
   image: "/images/projects/developer-portfolio.svg",
@@ -19,7 +19,7 @@ export const projects: Project[] = [
   slug: "book-my-advocate",
   title: "Book My Advocate",
   description:
-    "A legal consultation booking platform connecting clients with advocates for scheduled appointments and case inquiries.",
+    "A legal consultation booking platform that connects clients with experienced advocates for seamless appointment scheduling and case inquiries. The platform provides a secure and user-friendly interface for booking consultations, managing legal requests, and communicating efficiently. It streamlines the legal consultation process, making professional legal assistance more accessible and convenient.",
   longDescription:
     "Book My Advocate is a Django-based web platform that lets clients search for advocates by specialization, view availability, and book consultation slots. Built with Django REST Framework for the API layer and SQLite for data storage, with role-based access for clients and advocates.",
   image: "/images/projects/book-my-advocate.svg",
@@ -43,41 +43,6 @@ export const projects: Project[] = [
     liveUrl: "https://devnotes-demo.vercel.app",
     featured: true,
     year: 2026,
-  },
-  {
-    slug: "pulse-analytics",
-    title: "Pulse — Realtime Analytics Dashboard",
-    description:
-      "An event analytics dashboard with live charts, funnels, and cohort retention views.",
-    image: "/images/projects/pulse.svg",
-    tags: ["FastAPI", "React", "Tailwind CSS", "PostgreSQL"],
-    githubUrl: "https://github.com/yourusername/pulse-analytics",
-    liveUrl: "https://pulse-analytics-demo.vercel.app",
-    featured: false,
-    year: 2024,
-  },
-  {
-    slug: "shelfie",
-    title: "Shelfie — Inventory Tracker",
-    description:
-      "A small-business inventory and invoicing tool with barcode lookups and low-stock alerts.",
-    image: "/images/projects/shelfie.svg",
-    tags: ["Django", "SQLite", "JavaScript", "Bootstrap"],
-    githubUrl: "https://github.com/yourusername/shelfie",
-    featured: false,
-    year: 2023,
-  },
-  {
-    slug: "commit-stream",
-    title: "CommitStream — GitHub Activity Visualizer",
-    description:
-      "Turns GitHub commit history into an animated, shareable contribution story.",
-    image: "/images/projects/commitstream.svg",
-    tags: ["Next.js", "TypeScript", "GitHub API"],
-    githubUrl: "https://github.com/yourusername/commit-stream",
-    liveUrl: "https://commit-stream.vercel.app",
-    featured: false,
-    year: 2023,
   },
 ];
 

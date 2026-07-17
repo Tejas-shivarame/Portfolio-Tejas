@@ -20,7 +20,7 @@ A modern, premium, fully responsive personal portfolio built with **Next.js 15 (
 - Projects page with **live search** and **technology filtering**
 - Contact form with **React Hook Form + Zod** validation, a working `/api/contact` route, and toast notifications
 - FAQ accordion
-- SEO: Metadata API, Open Graph cards, JSON-LD (`Person` schema), dynamic `sitemap.xml` and `robots.txt`
+- SEO: Metadata API, Open Graph, JSON-LD (`Person` schema), dynamic `sitemap.xml` and `robots.txt`
 - Accessible: semantic landmarks, focus-visible states, `aria-*` attributes on interactive elements, honors `prefers-reduced-motion`
 - Production build verified: `npm run build` compiles cleanly and every route pre-renders as static HTML
 

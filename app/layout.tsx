@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 // TEMP-TEST: google fonts disabled for offline sandbox build check
 
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/data/site-config";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -11,7 +12,6 @@ import { ScrollProgress } from "@/components/scroll-progress";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { LoadingScreen } from "@/components/loading-screen";
 import { CustomCursor } from "@/components/custom-cursor";
-import { Toaster } from "@/components/ui/toaster";
 
 const display = { variable: "--font-display" };
 const body = { variable: "--font-body" };
@@ -101,7 +101,19 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
           <ScrollToTop />
-          <Toaster />
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              style: {
+                background: "#111827",
+                color: "#f1f5f9",
+                border: "1px solid #1f2937",
+                fontSize: "14px",
+              },
+              success: { iconTheme: { primary: "#6366f1", secondary: "#f1f5f9" } },
+              error: { iconTheme: { primary: "#ef4444", secondary: "#f1f5f9" } },
+            }}
+          />
         </ThemeProvider>
       </body>
     </html>
