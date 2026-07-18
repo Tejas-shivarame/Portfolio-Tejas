@@ -12,6 +12,7 @@ import { ScrollProgress } from "@/components/scroll-progress";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { LoadingScreen } from "@/components/loading-screen";
 import { CustomCursor } from "@/components/custom-cursor";
+import { WhatsAppBadge } from "@/components/whatsappbadge";
 
 const display = { variable: "--font-display" };
 const body = { variable: "--font-body" };
@@ -101,6 +102,11 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
           <ScrollToTop />
+          <WhatsAppBadge
+  phoneNumber="918105031246"
+  message="Hi Tejas! I checked out your portfolio and wanted to connect."
+  showNotificationBadge
+/>
           <Toaster/>
         </ThemeProvider>
       </body>

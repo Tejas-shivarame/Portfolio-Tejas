@@ -95,6 +95,15 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-12px)" },
         },
+        "whatsapp-pulse": {
+          "0%": { boxShadow: "0 0 0 0 rgba(37, 211, 102, 0.5)" },
+          "70%": { boxShadow: "0 0 0 14px rgba(37, 211, 102, 0)" },
+          "100%": { boxShadow: "0 0 0 0 rgba(37, 211, 102, 0)" },
+        },
+        "badge-enter": {
+          "0%": { opacity: "0", transform: "scale(0.5) translateY(20px)" },
+          "100%": { opacity: "1", transform: "scale(1) translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -103,6 +112,8 @@ const config: Config = {
         "fade-up": "fade-up 0.6s ease-out forwards",
         marquee: "marquee 28s linear infinite",
         float: "float 6s ease-in-out infinite",
+       "whatsapp-pulse": "whatsapp-pulse 2.4s infinite",
+       "badge-enter": "badge-enter 0.4s ease-out forwards",
       },
     },
   },
