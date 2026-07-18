@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import toast from "react-hot-toast";
+import { useToast } from "@/hooks/use-toast";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, Send } from "lucide-react";
@@ -16,6 +16,7 @@ export function ContactForm() {
   // Guards against duplicate submissions if the button is clicked twice
   // before the first request resolves.
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const {
     register,
@@ -40,16 +41,29 @@ export function ContactForm() {
       const data = await res.json().catch(() => null);
 
       if (!res.ok || !data?.success) {
-        toast.error(data?.message ?? "Unable to send email.");
+        toast({
+          variant: "destructive",
+          title: "Something went wrong",
+          description: data?.message ?? "Unable to send email.",
+        });
         return;
       }
 
-      toast.success(data.message ?? "Message sent successfully.");
+      toast({
+        variant: "success",
+        title: "Message sent",
+        description:
+          data.message ?? "Thanks for reaching out — I'll reply within 1–2 business days.",
+      });
       reset();
     } catch (error) {
       // Network failure, DNS error, offline, etc.
       console.error("Contact form submission failed:", error);
-      toast.error("Network error. Please check your connection and try again.");
+      toast({
+        variant: "destructive",
+        title: "Network error",
+        description: "Please check your connection and try again.",
+      });
     } finally {
       setIsSubmitting(false);
     }

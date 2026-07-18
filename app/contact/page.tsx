@@ -8,7 +8,7 @@ import { siteConfig } from "@/data/site-config";
 export const metadata: Metadata = buildMetadata({
   title: "Contact",
   description:
-    "Get in touch with Aarav Sharma for backend engineering roles, freelance projects, or collaboration.",
+    "Get in touch with Tejas S for backend engineering roles, freelance projects, or collaboration.",
   path: "/contact",
 });
 

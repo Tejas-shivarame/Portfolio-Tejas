@@ -23,8 +23,8 @@ export const projects: Project[] = [
   longDescription:
     "Book My Advocate is a Django-based web platform that lets clients search for advocates by specialization, view availability, and book consultation slots. Built with Django REST Framework for the API layer and SQLite for data storage, with role-based access for clients and advocates.",
   image: "/images/projects/book-my-advocate.svg",
-  tags: ["Python", "Django", "Django REST Framework", "SQLite"],
-  githubUrl: "https://github.com/tejasvijay96/book-my-advocate",
+  tags: ["Python","Django","Django REST Framework","REST APIs","SQLite","Celery","Redis","JWT"],
+  githubUrl: "https://github.com/Tejas-shivarame/Book-My-Advocate-Legal-Consultation-Platform.git",
   liveUrl: "https://your-portfolio-url.com",
   featured: true,
   year: 2026,

@@ -70,16 +70,29 @@ export async function POST(request: NextRequest) {
 
     // Send both emails. If either fails, report a generic error — never
     // leak SMTP internals or credentials to the client.
-    try {
-      await sendOwnerNotification(data);
-      await sendSenderConfirmation(data);
-    } catch (mailError) {
-      console.error("[api/contact] Failed to send email:", mailError);
-      return NextResponse.json(
-        { success: false, message: "Unable to send email." },
-        { status: 502 }
-      );
-    }
+try {
+  console.log("Sending owner email...");
+  await sendOwnerNotification(data);
+  console.log("Owner email sent.");
+
+  console.log("Sending confirmation email...");
+  await sendSenderConfirmation(data);
+  console.log("Confirmation email sent.");
+} catch (mailError) {
+  console.error("========== MAIL ERROR ==========");
+  console.error(mailError);
+  console.error("================================");
+
+  return NextResponse.json(
+    {
+      success: false,
+      message: "Unable to send email.",
+      error:
+        mailError instanceof Error ? mailError.message : "Unknown error",
+    },
+    { status: 502 }
+  );
+}
 
     return NextResponse.json(
       { success: true, message: "Message sent successfully." },

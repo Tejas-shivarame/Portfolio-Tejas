@@ -54,11 +54,11 @@ export const experience: ExperienceItem[] = [
     startDate: "2026-01",
     endDate: "2026-06",
     description: [
-      "Developed a full-stack legal consultation platform using Next.js for the frontend and Django REST Framework for the backend.",
-      "Implemented secure user authentication, advocate profiles, appointment booking, and RESTful APIs for seamless client-advocate interactions.",
-      "Integrated Celery and Redis for asynchronous task processing, including email notifications and background job management, ensuring a scalable and responsive application."
+    "Designed and developed a production-ready backend using Django REST Framework, exposing RESTful APIs for user management, advocate profiles, appointment scheduling, and case management.",
+    "Built secure authentication and authorization using JWT and Role-Based Access Control (RBAC) while implementing PostgreSQL database modeling, query optimization, and API validation.",
+    "Configured Celery with Redis to execute asynchronous background tasks such as email notifications, appointment confirmations, and scheduled jobs, improving application scalability and responsiveness."
     ],
-    tags: ["Next.js","React","Python","Django","Django REST Framework","REST APIs","SQLite","Celery","Redis","JWT"]
+    tags: ["Python","Django","Django REST Framework","REST APIs","SQLite","Celery","Redis","JWT"]
   },
   {
     id: "exp-personal-orbit",

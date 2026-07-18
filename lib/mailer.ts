@@ -5,14 +5,20 @@ const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_PASS = process.env.EMAIL_PASS;
 const MY_EMAIL = process.env.MY_EMAIL ?? EMAIL_USER;
 
+// Debug environment variables (safe)
+console.log("========== MAILER DEBUG ==========");
+console.log("EMAIL_USER:", EMAIL_USER);
+console.log("MY_EMAIL:", MY_EMAIL);
+console.log("HAS_EMAIL_PASS:", !!EMAIL_PASS);
+console.log("==================================");
+
 if (!EMAIL_USER || !EMAIL_PASS) {
-  // Logged only on the server, never exposed to the client.
   console.warn(
     "[mailer] EMAIL_USER or EMAIL_PASS is missing — emails will fail to send."
   );
 }
 
-// Single shared transporter instance, reused across requests.
+// Create transporter
 export const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -21,8 +27,16 @@ export const transporter = nodemailer.createTransport({
   },
 });
 
-// Escapes user input before interpolating into HTML email bodies, preventing
-// stray HTML/markup in the message from breaking the email layout.
+// Verify SMTP connection
+transporter.verify((error, success) => {
+  if (error) {
+    console.error("❌ SMTP Verify Error:", error);
+  } else {
+    console.log("✅ SMTP Server is ready");
+  }
+});
+
+// Escapes user input before interpolating into HTML email bodies.
 function escapeHtml(value: string): string {
   return value
     .replace(/&/g, "&amp;")
@@ -39,7 +53,7 @@ export async function sendOwnerNotification(data: ContactFormData) {
   await transporter.sendMail({
     from: `"Portfolio Contact Form" <${EMAIL_USER}>`,
     to: MY_EMAIL,
-    replyTo: data.email, // lets you hit "reply" and respond directly to the sender
+    replyTo: data.email,
     subject: `New Portfolio Contact: ${data.subject}`,
     text: [
       "New Portfolio Contact",
@@ -70,8 +84,7 @@ export async function sendOwnerNotification(data: ContactFormData) {
 }
 
 /**
- * Sends an automatic "thanks for reaching out" confirmation back to the
- * person who submitted the form.
+ * Sends an automatic confirmation back to the sender.
  */
 export async function sendSenderConfirmation(
   data: ContactFormData,
