@@ -11,7 +11,7 @@ export const siteConfig = {
   email: "tejasvijay96@gmail.com",
   phone: "+91 81050 31246",
   location: "Bengaluru, India",
-  resumeUrl: "resume/Tejas_S_Resume.pdf",
+  resumeUrl: "resume/STejas.pdf",
   keywords: [
     "Software Engineer",
     "Python Developer",
