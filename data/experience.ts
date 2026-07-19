@@ -61,16 +61,28 @@ export const experience: ExperienceItem[] = [
     tags: ["Python","Django","Django REST Framework","REST APIs","SQLite","Celery","Redis","JWT"]
   },
   {
-    id: "exp-personal-orbit",
+    id: "exp-personal-hms",
     type: "personal",
-    title: "Orbit — Task & Sprint Manager",
+    title: "Enterprise Hospital Management System",
     organization: "Personal Project",
-    startDate: "2024-02",
-    endDate: "2024-05",
+    startDate: "2026-06",
+    endDate: "Present",
     description: [
-      "Built a full-stack Kanban and sprint planning tool from scratch to learn real-time systems.",
-      "Implemented WebSocket-based live board updates and optimistic UI state on the React front end.",
+      "Architected and developed a full-stack Hospital Management System using Django REST Framework, Next.js 15, PostgreSQL, and Docker with a scalable multi-hospital architecture.",
+      "Implemented secure authentication with JWT access/refresh tokens, email OTP verification, optional TOTP-based 2FA, role-based access control (RBAC), and Celery-powered background task processing using Redis.",
+      "Built a modern responsive frontend with React, TypeScript, Tailwind CSS, Zustand, React Query, React Hook Form, and Zod for efficient state management, API communication, and form validation.",
+      "Designed the backend to support future enterprise modules including Patients, Doctors, Appointments, Billing, Pharmacy, Laboratory, Notifications, Analytics, and Reporting."
     ],
-    tags: ["Django", "React", "WebSockets"],
-  },
+    tags: [
+      "Django",
+      "Django REST Framework",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "PostgreSQL",
+      "Redis",
+      "Celery",
+      "Docker"
+    ],
+  }
 ];

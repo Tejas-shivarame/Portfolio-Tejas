@@ -30,20 +30,30 @@ export const projects: Project[] = [
   year: 2026,
 },
 
-  {
-    slug: "devnotes",
-    title: "DevNotes — Markdown Knowledge Base",
-    description:
-      "A self-hosted knowledge base for engineering teams with full-text search and version history.",
-    longDescription:
-      "DevNotes lets teams write and organize markdown documentation with instant full-text search (Postgres tsvector), tagging, and revision history — deployed as a single Docker image.",
-    image: "/images/projects/devnotes.svg",
-    tags: ["Django", "PostgreSQL", "Next.js", "TypeScript"],
-    githubUrl: "https://github.com/yourusername/devnotes",
-    liveUrl: "https://devnotes-demo.vercel.app",
-    featured: true,
-    year: 2026,
-  },
+{
+  slug: "hospital-management-system",
+  title: "Hospital Management System",
+description:
+  "A comprehensive Hospital Management System that streamlines patient care, appointment scheduling, medical records, & hospital operations. The platform provides secure authentication, role-based access control, & scalable REST APIs for efficient healthcare management. It enhances hospital efficiency by simplifying patient care, appointments, & administrative tasks.",longDescription:
+    "A modern Hospital Management System built with Django REST Framework and Next.js, designed for multi-hospital environments. It features JWT authentication with refresh token rotation, email OTP verification, optional TOTP-based 2FA, role-based access control (RBAC), Celery-powered background processing, PostgreSQL, Redis, and Dockerized deployment. The frontend is built using Next.js 15, React, TypeScript, Tailwind CSS, Zustand, and React Query to deliver a fast, responsive, and scalable user experience. The architecture is designed to support future modules including patient management, doctors, appointments, billing, pharmacy, laboratory, dashboards, analytics, notifications, and reporting.",
+
+  image: "/images/projects/hospital-management-system.svg",
+
+  tags: [
+    "Python",
+    "Django",
+    "Django REST Framework",
+    "PostgreSQL",
+    "Next.js",
+    "TypeScript",
+    "Docker",
+  ],
+  githubUrl: "https://github.com/Tejas-shivarame/Hospital-Management-System.git",
+  liveUrl: "https://your-live-demo.vercel.app",
+
+  featured: true,
+  year: 2026,
+}
 ];
 
 export const allProjectTags = Array.from(
