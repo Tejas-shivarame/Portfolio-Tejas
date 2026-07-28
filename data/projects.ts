@@ -23,7 +23,7 @@ export const projects: Project[] = [
   longDescription:
     "A modern, animated marketing site built with Next.js 15 (App Router), TypeScript, Tailwind CSS, and Framer Motion for eSmart Fetch, an enterprise infrastructure and security solutions company. Includes Home, About, Services, and Contact pages sharing a common design system built on CSS custom properties, supporting a fully custom light and dark theme toggled via next-themes. Features an interactive Engineering & Services / Material Supply tab browser, an animated trusted-clients logo marquee, a working contact form, WhatsApp integration, and a locally-simulated AI assistant (knowledge-base-driven, no external AI API) that answers common questions about the company's services. Built with glassmorphism cards, gradient accents, scroll-triggered animations, and full mobile responsiveness throughout.",
 
-  image: "/images/projects/esmart-Fetch.svg",
+  image: "/images/projects/eSmart-Fetch.svg",
 
   tags: [
     "Next.js",
