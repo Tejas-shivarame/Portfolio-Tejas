@@ -26,12 +26,12 @@ export const skills: Skill[] = [
   { name: "SQLite", category: "Database", level: 85 },
 
   // Tools
-  { name: "Git", category: "Tools", level: 92 },
-  { name: "GitHub", category: "Tools", level: 92 },
-  { name: "Docker", category: "Tools", level: 78 },
-  { name: "Postman", category: "Tools", level: 88 },
-  { name: "VS Code", category: "Tools", level: 95 },
-  { name: "Linux", category: "Tools", level: 80 },
+  { name: "Git", category: "Tools", level:95  },
+  { name: "GitHub", category: "Tools", level: 95 },
+  { name: "Docker", category: "Tools", level: 70 },
+  { name: "Postman", category: "Tools", level: 98 },
+  { name: "VS Code", category: "Tools", level: 100 },
+  { name: "Linux", category: "Tools", level: 75 },
 ];
 
 export const skillCategories = ["Frontend", "Backend", "Database", "Tools"] as const;
