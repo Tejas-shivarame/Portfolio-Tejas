@@ -16,6 +16,29 @@ export const projects: Project[] = [
   year: 2026,
 },
 {
+  slug: "esmart-fetch",
+  title: "eSmart Fetch",
+  description:
+    "eSmart Fetch is a Bangalore-based technology company specializing in security, fire safety, audio-visual, and IT infrastructure solutions.The platform showcases a modern, responsive interface.Visitors can explore a wide range of enterprise services through an intuitive and interactive experience.An AI-powered assistant provides instant guidance, answers customer queries, and helps users discover the right solutions.",
+  longDescription:
+    "A modern, animated marketing site built with Next.js 15 (App Router), TypeScript, Tailwind CSS, and Framer Motion for eSmart Fetch, an enterprise infrastructure and security solutions company. Includes Home, About, Services, and Contact pages sharing a common design system built on CSS custom properties, supporting a fully custom light and dark theme toggled via next-themes. Features an interactive Engineering & Services / Material Supply tab browser, an animated trusted-clients logo marquee, a working contact form, WhatsApp integration, and a locally-simulated AI assistant (knowledge-base-driven, no external AI API) that answers common questions about the company's services. Built with glassmorphism cards, gradient accents, scroll-triggered animations, and full mobile responsiveness throughout.",
+
+  image: "/images/projects/esmart-Fetch.svg",
+
+  tags: [
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Framer Motion",
+    "next-themes",
+    "grok-api"
+  ],
+  githubUrl: "https://github.com/Tejas-shivarame/eSmart-Fetch.git",
+  liveUrl: "https://e-smart-fetch-git-main-tejas2000-shivarme-personal.vercel.app/",
+  featured: true,
+  year: 2026,
+},
+{
   slug: "book-my-advocate",
   title: "Book My Advocate",
   description:
