@@ -70,8 +70,8 @@ export default function RootLayout({
       addressLocality: siteConfig.location,
     },
     sameAs: [
-      "https://github.com/yourusername",
-      "https://linkedin.com/in/yourusername",
+    "https://github.com/Tejas-shivarame",
+    "https://www.linkedin.com/in/tejas-s-20apr2000",
     ],
   };
 
