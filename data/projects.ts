@@ -72,7 +72,7 @@ description:
     "Docker",
   ],
   githubUrl: "https://github.com/Tejas-shivarame/Hospital-Management-System.git",
-  liveUrl: "https://your-live-demo.vercel.app",
+  liveUrl: "https://hospital-management-system-peach-ten.vercel.app/",
 
   featured: true,
   year: 2026,
