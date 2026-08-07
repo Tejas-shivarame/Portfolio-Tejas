@@ -12,7 +12,7 @@ export const faqs: FaqItem[] = [
     id: "faq-availability",
     question: "Are you open to new opportunities?",
     answer:
-      "I'm currently working as a freelance developer while actively seeking a full-time Backend or Full-Stack Software Engineer role. If you'd like to discuss an opportunity or project, feel free to reach out through the contact form—I respond personally."
+      "Yes-I'm currently working as a freelance developer while actively seeking a full-time Backend or Full-Stack Software Engineer role. If you'd like to discuss an opportunity or project, feel free to reach out through the contact form—I respond personally."
   },
   {
     id: "faq-remote",
