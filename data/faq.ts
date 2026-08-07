@@ -6,13 +6,13 @@ export const faqs: FaqItem[] = [
     id: "faq-stack",
     question: "What's your primary tech stack?",
     answer:
-      "Python on the backend — mostly Django, Django REST Framework, and FastAPI — with PostgreSQL as my default database. On the front end I reach for React, Next.js, and TypeScript.",
+      "Python on the backend — mostly Django, Django REST Framework, RESTAPI's and FastAPI — with PostgreSQL as my default database. On the front end I reach for React, Next.js, and TypeScript.",
   },
   {
     id: "faq-availability",
     question: "Are you open to new opportunities?",
     answer:
-      "Yes — I'm currently open to full-time backend or full-stack roles, as well as select freelance projects. The contact form on this site reaches me directly.",
+      "I'm currently working as a freelance developer while actively seeking a full-time Backend or Full-Stack Software Engineer role. If you'd like to discuss an opportunity or project, feel free to reach out through the contact form—I respond personally."
   },
   {
     id: "faq-remote",
