@@ -46,6 +46,30 @@ export const experience: ExperienceItem[] = [
   ],
   tags: ["Python","TensorFlow Lite","OpenCV","Raspberry Pi","Machine Learning","SVM","CNN"]   
   },
+{
+  id: "exp-freelance-esmart-fetch",
+  type: "freelance",
+  title: "Freelance Full-Stack Developer",
+  organization: "eSmart Fetch",
+  startDate: "2026-07",
+  endDate: "Present",
+  description: [
+    "Designed and developed the company's responsive website using Next.js, TypeScript, and Tailwind CSS, delivering a modern and performance-focused user experience.",
+    "Implemented reusable UI components, responsive layouts, SEO optimization, and smooth animations to improve accessibility, user engagement, and search engine visibility.",
+    "Deployed the application on Vercel, optimized assets and images for faster load times, and collaborated with the client to gather requirements, iterate on feedback, and deliver production-ready features."
+  ],
+  tags: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Framer Motion",
+    "SEO",
+    "Vercel",
+    "Git"
+  ]
+},
+  
   {
     id: "exp-personal-bookmyadvocate",
     type: "personal",
